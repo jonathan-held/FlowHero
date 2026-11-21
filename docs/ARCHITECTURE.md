@@ -1,0 +1,15 @@
+# Application structure
+
+FlowHero is an independent local desktop application using FlowKit for FCS acquisition preprocessing/membership, NumPy for full-event summaries, and PySide6/PyQtGraph for UI and plots.
+
+model.py owns definitions, hierarchy and scientific invariants; storage.py owns strict versioned persistence and atomic writes. analysis.py owns verified input parsing, domains, membership and full-event results. Dependencies/cache own reusable analysis keys; jobs own supervised background work. Workbench owns the current project, edits/Undo and result freshness; PlotDocument owns and disposes plot resources. Gate import validates XML/JSON once at its producing boundary, preserves channels/geometry/hierarchy and provenance, and applies a reviewed candidate through normal editing. Portable files stream and verify active payloads while preserving identities.
+
+export.py owns result tables, extended statistics, event export, control thresholds, file information and provenance; it recalculates from verified sources and never reads GUI state. actions.py holds the menu actions and dialogs of the main window as a mixin of Workbench. task_jobs.py runs exports and look-ups that need event data in a separate process, one at a time; Undo and edits do not cancel them, Cancel and Close do.
+
+Distribution, command and module are named flowhero. Serialized format identifiers keep their earlier names (`flowpilot-project`, `flowpilot-gates`, `flowpilot-portable`) and the earlier file suffixes `.flowpilot.json` / `.flowpilot.zip` still open, so that existing files stay readable.
+
+Added in 0.9.0: scales.py owns the scale text (`linear`, `log`, `logicle:T:W:M:A`) and its forward/inverse functions, shared by model validation, analysis and plots. Compensation is a project setting resolved per sample in analysis.py into one FlowKit matrix, used both for the event table and inside gate evaluation. Combined gates are evaluated from the cached memberships of their operands; all other gates by FlowKit. qc.py holds the singlet band and the time course as pure functions. wsp_import.py projects FlowKit's parsed FlowJo workspace onto the gate model. gating_actions.py is a second mixin of Workbench for gate-tree actions, compensation, quality views, settings and recovery copies.
+
+Added in 0.10.1: `histograms.histogram_statistics_table` turns the long statistics rows into one row per sample for the histogram statistics window (result_windows.py) and its CSV. Analysis rows and the other exports stay long.
+
+Added in 0.10.0: sample_drag.py holds the sample list widget (drag source), the drag content and the workbench methods for fixed sample lists. `PlotSpec.pinned` marks a histogram whose `sample_ids` are its own list; automatic histograms keep receiving the list selection in `apply_sample_selection`. `pinned` and `legend` are display settings and are excluded from the dependency key, so they never cause recalculation. Plot windows accept the drag on the plot viewport and on the window itself. Results of samples other than the selected one trigger one batched redraw of overlay plots.

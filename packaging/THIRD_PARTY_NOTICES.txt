@@ -1,0 +1,29 @@
+FlowHero developer desktop bundle
+
+This bundle includes third-party Python packages and native libraries. The
+third-party-notices directory records their installed distribution metadata
+and copies available wheel-supplied license, copyright and notice files.
+This inventory is generated from the build environment; it can contain entries
+for tools that are not present in the final runtime.
+
+PySide6/Shiboken6 and Qt are third-party components. Installed PySide6 metadata
+provides LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only licensing alternatives;
+individual Qt modules and bundled third-party code may have additional terms.
+Full LGPL-3.0 and GPL-3.0 texts are supplied in this directory. The application
+uses dynamically loaded Qt libraries rather than statically linking Qt.
+
+Unmodified PySide6 6.10.0 source:
+https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.10.0-src/
+Qt 6.10.0 source archive and component notices:
+https://download.qt.io/archive/qt/6.10/6.10.0/single/
+https://doc.qt.io/qtforpython-6/licenses.html
+
+Python source/license:
+https://www.python.org/downloads/source/
+https://docs.python.org/3/license.html
+PyInstaller bootloader licensing and exception:
+https://pyinstaller.org/en/stable/license.html
+
+This is a local developer/test build. Native macOS validation, actual collected
+component review and signing/notarization are separate release tasks. Including
+this inventory is not a claim that distribution obligations have been reviewed.

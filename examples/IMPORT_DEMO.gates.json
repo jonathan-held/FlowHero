@@ -1,0 +1,74 @@
+{
+  "format": "flowpilot-gates",
+  "version": 1,
+  "domain": "flowkit-preprocessed-uncompensated",
+  "gate_validity_policy": "Exclude nonfinite gate coordinates; logarithmic gate dimensions require positive acquisition-preprocessed values.",
+  "coordinate_policy": "Gate coordinates are linear values or log10(values), per gate scales. Statistics use untransformed acquisition-preprocessed values.",
+  "gates": [
+    {
+      "id": "p",
+      "name": "Population",
+      "parent_id": null,
+      "channels": [
+        "FSC-A",
+        "SSC-A"
+      ],
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "scales": [
+        "linear",
+        "linear"
+      ]
+    },
+    {
+      "id": "r",
+      "name": "Singlets",
+      "parent_id": "p",
+      "channels": [
+        "SSC-A",
+        "SSC-H"
+      ],
+      "minimum": [
+        0,
+        0
+      ],
+      "maximum": [
+        6,
+        6
+      ],
+      "scales": [
+        "linear",
+        "linear"
+      ],
+      "group_id": null
+    },
+    {
+      "id": "v",
+      "name": "Viable",
+      "parent_id": "r",
+      "channel": "FL1-A",
+      "minimum": 0,
+      "maximum": 8,
+      "scales": [
+        "linear"
+      ]
+    }
+  ],
+  "sample_overrides": {}
+}

@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use FlowHero, please cite it as below, and cite FlowKit, which performs the FCS reading, compensation and gating."
+title: "FlowHero: desktop flow cytometry analysis on FlowKit"
+type: software
+version: 0.10.2
+date-released: 2026-11-21
+license: BSD-3-Clause
+authors:
+  - family-names: Held
+    given-names: Jonathan
+  - name: "Codex (OpenAI)"
+  - name: "Claude (Anthropic)"
+keywords:
+  - flow cytometry
+  - FCS
+  - gating
+  - compensation
+  - FlowKit
+references:
+  - type: article
+    title: "FlowKit: A Python Toolkit for Integrated Manual and Automated Cytometry Analysis Workflows"
+    authors:
+      - family-names: White
+        given-names: Scott
+      - family-names: Quinn
+        given-names: John
+      - family-names: Enzor
+        given-names: Jennifer
+      - family-names: Staats
+        given-names: Janet
+      - family-names: Mosier
+        given-names: Sarah M.
+      - family-names: Almarode
+        given-names: James
+      - family-names: Denny
+        given-names: Thomas N.
+      - family-names: Weinhold
+        given-names: Kent J.
+      - family-names: Ferrari
+        given-names: Guido
+      - family-names: Chan
+        given-names: Cliburn
+    journal: "Frontiers in Immunology"
+    year: 2021
+    volume: 12
+    doi: 10.3389/fimmu.2021.768541
